@@ -135,3 +135,13 @@ export default {
 }
 </script>
 ```
+
+#### vm.$on
+`v-on`디렉티브와 동일한 기능 (jQuery 이벤트 등록과 유사)
+
+#### vm.$forceUpdate
+Vue 인스턴스를 강제로 다시 렌더링하는 메소드
+
+#### vm.$nextTick
+ 라이프사이클 이후 콜백을 실행시켜주는 무언가.. // TODO: 잘모르겠음
+ 

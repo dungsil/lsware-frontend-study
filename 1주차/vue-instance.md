@@ -100,21 +100,27 @@ Vue.component('MyReativeComponents', {
 
 ### Vue 인스턴스 목성 및 메소드
 
-#### vm.$data, vm.$props
-`data` 및 `props`의 프록시 
+#### vm.$data
+인스턴스 옵션 `data`의 프록시
+
+#### vm.$props
+인스턴스 옵션 `props`의 프록시
 
 #### vm.$el
-Vue 인스턴스의 돔 엘리먼트 (HTMLElement)
+Vue 인스턴스의 HTML 요소([HTMLElement](https://developer.mozilla.org/ko/docs/Web/API/HTMLElement))
 
 #### vm.$attr
 현재 컴포넌트에서 주어진 HTML 속성(어트리뷰트) 중에서 props로 인식되지 않은 속성을 뜻함
 
-#### vm.$set, vm.$delete
+#### vm.$set
 반응형으로 선언된 값을 업데이트하는 메소드 ($set은 일반적인 대입으로도 작동한다.)
+
+#### vm.$delete
+선언된 값을 제거하는 메소드
 
 #### vm.$emit
 인자로 주어진 이벤트를 트리거한다. 이벤트 이름은 자유롭게 할당할 수 있다.
-    - 외부에 있는 다른 인스턴스에게 현재 인스턴스에 이벤트가 발생했다는 사실을 알림
+    - 외부에 있는 다른 인스턴스에게 현재 인스턴스에 이벤트가 발생했다는 사실을 알리는 역할
 ```html
 <template>
     <button @click="hello" />

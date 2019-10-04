@@ -17,5 +17,5 @@
     - Vue 템플릿 문법 [💬](1주차/vue-template.md)
   - 금  : Vue.JS 입문
     - Vue 디렉티브 [💬](1주차/vue-directive.md)
-  - 주말: Vue.JS Example 구현해보기
+  - 주말: Vue.JS Example 구현해보기 [💬](1주차/vue-example.md)
     - 참고링크: https://kr.vuejs.org/v2/examples/grid-component.html

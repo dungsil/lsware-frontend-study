@@ -12,6 +12,7 @@
 <script>
 import MemoItem from './MemoItem'
 import MemoForm from './MemoForm'
+import { mapActions } from 'vuex'
 export default {
   name: 'Memo',
   components: {
@@ -24,13 +25,9 @@ export default {
     }
   },
   created () {
-    this.memos = localStorage.memos ? JSON.parse(localStorage.memos) : []
+    this.fetchMemos()
   },
   methods: {
-    addMemo (payload) {
-      this.memos.push(payload)
-      this.storeMemo()
-    },
     modifyMemo (payload) {
       const { id, content } = payload
       const idx = this.memos.findIndex(v => v.id === id)
@@ -48,7 +45,9 @@ export default {
       localStorage.setItem('memos', str)
 
       this.$emit('change', this.memos.length)
-    }
+    },
+
+    ...mapActions(['fetchMemos', 'addMemo'])
   }
 }
 </script>

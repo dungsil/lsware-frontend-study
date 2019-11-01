@@ -46,6 +46,8 @@ export default {
     storeMemo () {
       const str = JSON.stringify(this.memos)
       localStorage.setItem('memos', str)
+
+      this.$emit('change', this.memos.length)
     }
   }
 }

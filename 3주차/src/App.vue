@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <AppHeader />
-    <Memo />
+    <AppHeader :count="count" />
+    <Memo @change="updateCount" />
   </div>
 </template>
 
@@ -9,16 +9,22 @@
 import AppHeader from './components/AppHeader'
 import Memo from './components/memo/Memo'
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     Memo,
     AppHeader
   },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      count: 0
     }
   },
+  methods: {
+    updateCount (count) {
+      console.log(count)
+      this.count = count
+    }
+  }
 }
 </script>
 <style>

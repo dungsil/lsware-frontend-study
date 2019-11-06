@@ -1,16 +1,16 @@
 export default {
-  fetchMemos (state, payload) {
-    state.memos = payload
+  fetchMemos (state, memo) {
+    state.memos = memo
   },
-  addMemo (state, payload) {
-    state.memos.push(payload)
+  addMemo (state, memo) {
+    state.memos.push(memo)
   },
-  modifyMemo (state, payload) {
-    const i = state.memos.findIndex(v => v.id === payload.id)
-    state.memos.splice(i, 1, { ...state.memos[i], content: payload.content })
+  modifyMemo (state, memo) {
+    const i = state.memos.findIndex(v => v.id === memo.id)
+    state.memos.splice(i, 1, { ...state.memos[i], content: memo.content })
   },
-  deleteMemo (state, payload) {
-    const i = state.memos.findIndex(v => v.id === payload.id)
+  deleteMemo (state, id) {
+    const i = state.memos.findIndex(v => v.id === id)
     state.memos.splice(i, 1)
   }
 }

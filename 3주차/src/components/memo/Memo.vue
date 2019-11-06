@@ -1,10 +1,10 @@
 <template>
   <div class="memo-app">
-    <MemoForm @add="addMemo" />
+    <MemoForm @add="onAdd" />
     <ul class="memo-list">
       <MemoItem v-for="memo in memos" :key="memo.id"
                 :editing-id="memo.id" :memo="memo"
-                @modify="modifyMemo" @delete="deleteMemo" />
+                @modify="onModify" @delete="onDelete" />
     </ul>
   </div>
 </template>
@@ -25,29 +25,29 @@ export default {
     }
   },
   created () {
-    this.fetchMemos()
+    this.actionFetchMemos()
+    this.memos = this.$store.state.memos
+    this.afterEvent()
   },
   methods: {
-    modifyMemo (payload) {
-      const { id, content } = payload
-      const idx = this.memos.findIndex(v => v.id === id)
-      const memo = this.memos[idx]
-      this.memos.splice(idx, 1, { ...memo, content })
-      this.storeMemo()
+    onAdd (memo) {
+      this.actionAddMemo(memo)
+      this.afterEvent()
     },
-    deleteMemo (id) {
-      const idx = this.memos.findIndex(v => v.id === id)
-      this.memos.splice(idx, 1) // id 값을 배열에서 제거
-      this.storeMemo()
+    onModify (memo) {
+      this.actionModifyMemo(memo)
+      this.afterEvent()
     },
-    storeMemo () {
-      const str = JSON.stringify(this.memos)
-      localStorage.setItem('memos', str)
-
+    onDelete (memo) {
+      this.actionDeleteMemo(memo)
+      this.afterEvent()
+    },
+    afterEvent () {
+      const strMemos = JSON.stringify(this.memos)
+      localStorage.setItem('memos', strMemos)
       this.$emit('change', this.memos.length)
     },
-
-    ...mapActions(['fetchMemos', 'addMemo'])
+    ...mapActions(['actionFetchMemos', 'actionAddMemo', 'actionModifyMemo', 'actionDeleteMemo'])
   }
 }
 </script>

@@ -1,0 +1,3 @@
+[submodule "candovue-restapi"]
+	path = candovue-restapi
+	url = git@github.com:CanDoVueJS/RESTful-api-server.git

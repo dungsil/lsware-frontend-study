@@ -4,17 +4,30 @@ import Router from 'vue-router'
 import Header from '@/components/AppHeader'
 
 import Index from '@/pages/Index'
-import Login from '@/pages/Login'
+
+// 회원관리
+import SignUp from '@/pages/auth/SignUp'
+import Login from '@/pages/auth/Login'
+
+// 게시글 관리
+import PostDetail from '@/pages/post/PostDetail'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     router(Index, '/'), // 메인페이지
-    router(Login, '/login')
+
+    // 회원관리
+    router(Login, '/auth/login'), // 로그인 페이지
+    router(SignUp, '/auth/signup'), // 회원가입 페이지
+
+    // 게시글 관리
+    router(PostDetail, '/post/')
   ]
 })
 
+/** 간단한 라우터 생성을 위한 함수 */
 function router (component, path) {
   return {
     path,

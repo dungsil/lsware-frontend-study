@@ -1,10 +1,10 @@
 <template>
   <header class="header">
-    <h1>VueJS Community</h1>
+    <h1 class="logo">VueJS Community</h1>
 
-    <p class="login">
-      <a href="/login">로그인</a>
-    </p>
+    <div class="nav">
+      <a href="/auth/login">로그인</a>
+    </div>
   </header>
 </template>
 
@@ -17,17 +17,22 @@
   top: 0;
   left: 0;
   width: 100%;
+  height: 60px;
   border-bottom: 1px solid #ededed;
   background-color: #fff;
 }
 
-h1 {
+.logo {
+  position: absolute;
+  top: 12px;
+  left: 20px;
   margin: 0;
+  font-size: 26px;
 }
 
-.login {
+.nav {
   position: absolute;
-  top: 0;
+  top: 20px;
   right: 20px;
 }
 </style>

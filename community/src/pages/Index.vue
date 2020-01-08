@@ -22,6 +22,7 @@
             <td>{{ i + 1 }}</td>
             <td class="post-title">
               <router-link :to="getPostLink(v.id)">{{ v.title }}</router-link>
+              [{{ v.comments.length }}]
             </td>
             <td>{{ v.user.name }}</td>
             <td>{{ v.createdAt }}</td>

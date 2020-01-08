@@ -1,20 +1,21 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Header from '@/components/AppHeader'
+import Header from '../components/AppHeader'
 
-import Index from '@/pages/Index'
+import Index from '../pages/Index'
 
 // 회원관리
-import SignUp from '@/pages/auth/SignUp'
-import Login from '@/pages/auth/Login'
+import SignUp from '../pages/auth/SignUp'
+import Login from '../pages/auth/Login'
 
 // 게시글 관리
-import PostDetail from '@/pages/post/PostDetail'
+import PostDetail from '../pages/post/PostDetail'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     router(Index, '/'), // 메인페이지
 
@@ -23,7 +24,7 @@ export default new Router({
     router(SignUp, '/auth/signup'), // 회원가입 페이지
 
     // 게시글 관리
-    router(PostDetail, '/post/')
+    router(PostDetail, '/posts/:id')
   ]
 })
 

@@ -1,9 +1,9 @@
 <template>
   <header class="header">
-    <h1 class="logo">VueJS Community</h1>
+    <router-link to="/" tag="h1" class="logo">VueJS Community</router-link>
 
     <div class="nav">
-      <a href="/auth/login">로그인</a>
+      <router-link to="/auth/login">로그인</router-link>
     </div>
   </header>
 </template>

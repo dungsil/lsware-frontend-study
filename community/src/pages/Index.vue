@@ -66,14 +66,6 @@ table {
   width: 100%;
 }
 
-.list {
-  width: 940px;
-  margin: 60px auto 0;
-  padding: 40px 30px 60px;
-  background-color: #fff;
-  box-shadow: 0 4px 10px -4px rgba(0, 0, 0, 0.2);
-}
-
 .list h2 {
   margin-bottom: 20px;
   text-align: left;

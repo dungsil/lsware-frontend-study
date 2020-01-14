@@ -3,7 +3,9 @@
     <router-view name="header" />
 
     <div class="content">
-      <router-view />
+      <div class="card">
+        <router-view />
+      </div>
     </div>
   </div>
 </template>
@@ -20,11 +22,22 @@ body {
 }
 
 #app {
+  display: table;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   background-color: #ededed;
 }
+
 .content {
-  padding-top: 60px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.card {
+  width: 50%;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 4px 10px -4px rgba(0, 0, 0, 0.2);
 }
 </style>

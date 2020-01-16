@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   name: 'Login',
   data () {
@@ -31,9 +33,13 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['login']),
     onLogin () {
       const { email, password } = this
-      console.log(email, password)
+
+      this.login({ email, password })
+        .then(() => this.$router.push({ name: 'Index' }))
+        .catch(err => alert(err.response.data.msg))
     }
   }
 }
@@ -49,7 +55,7 @@ form {
   margin: 0 auto;
 }
 
-input {
+input:not([type=submit]) {
   width: 100%;
   height: calc(1.5em + .75rem + 2px);
   margin-bottom: 8px;

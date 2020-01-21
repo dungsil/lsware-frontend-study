@@ -1,5 +1,5 @@
 export default {
-  isLogin (state) {
-    return state.info.length > 0
+  isNotLogin (state) {
+    return state.info === null
   }
 }

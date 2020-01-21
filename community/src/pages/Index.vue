@@ -86,6 +86,12 @@ table {
   border-collapse: collapse;
 }
 
+.list::after {
+  display: table;
+  content: "";
+  clear: both;
+}
+
 .post td {
   padding: 20px;
   text-align: center;

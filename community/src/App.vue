@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <router-view name="header" />
+
     <div class="content">
       <div class="card">
         <router-view />

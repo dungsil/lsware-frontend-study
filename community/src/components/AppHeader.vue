@@ -3,14 +3,29 @@
     <router-link to="/" tag="h1" class="logo">VueJS Community</router-link>
 
     <div class="nav">
-      <router-link to="/auth/login">로그인</router-link>
+      <router-link to="/auth/login" v-if="isNotLogin">로그인</router-link>
+      <div v-else>
+        <button type="button" @click="onLogout" class="logout">로그아웃</button>
+      </div>
     </div>
   </header>
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions } from 'vuex'
 export default {
-  name: 'AppHeader'
+  name: 'AppHeader',
+  computed: {
+    ...mapState(['info']),
+    ...mapGetters(['isNotLogin'])
+  },
+  methods: {
+    ...mapActions(['logout']),
+    onLogout () {
+      this.logout()
+      this.$router.push({ name: 'Index' })
+    }
+  }
 }
 </script>
 
@@ -37,5 +52,9 @@ export default {
   position: absolute;
   top: 20px;
   right: 20px;
+}
+
+.logout {
+  all: initial;
 }
 </style>

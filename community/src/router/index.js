@@ -6,7 +6,7 @@ import Header from '../components/AppHeader'
 import Index from '../pages/Index'
 
 // 회원관리
-import Registry from '../pages/auth/Registry'
+import Register from '../pages/auth/Register'
 import Login from '../pages/auth/Login'
 
 // 게시글 관리
@@ -21,7 +21,7 @@ export default new Router({
 
     // 회원관리
     router(Login, '/auth/login'), // 로그인 페이지
-    router(Registry, '/auth/registry'), // 회원가입 페이지
+    router(Register, '/auth/register'), // 회원가입 페이지
 
     // 게시글 관리
     router(PostDetail, '/posts/:id')

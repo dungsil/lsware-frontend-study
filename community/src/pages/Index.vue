@@ -54,8 +54,8 @@ export default {
     }
   },
   methods: {
-    getPostLink (id) {
-      return `posts/${id}`
+    getPostLink (postId) {
+      return { name: 'PostDetail', params: { postId } }
     }
   }
 }

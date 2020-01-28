@@ -27,5 +27,10 @@ export default {
 
   deleteMyInfo (state) {
     state.info = null
+  },
+
+  // 게시글
+  fetchPost (state, post) {
+    state.post = post
   }
 }

@@ -24,18 +24,21 @@ export default new Router({
     router(Register, '/auth/register'), // 회원가입 페이지
 
     // 게시글 관리
-    router(PostDetail, '/posts/:id')
+    router(PostDetail, '/posts/:postId')
   ]
 })
 
 /** 간단한 라우터 생성을 위한 함수 */
 function router (component, path) {
+  const props = path.includes('/:') ? { default: true } : false
+
   return {
     path,
     name: component.name,
     components: {
       default: component,
       header: Header
-    }
+    },
+    props
   }
 }

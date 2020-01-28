@@ -25,5 +25,12 @@ export default {
     commit('setAccessToken', accessToken)
     return http.get(endpoint.myInfo)
       .then((res) => commit('setMyInfo', res.data))
+  },
+
+  // 게시글
+
+  fetchPost ({ commit }, postId) {
+    return http.get(`/posts/${postId}`)
+      .then((res) => commit('fetchPost', res.data))
   }
 }

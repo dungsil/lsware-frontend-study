@@ -3,8 +3,7 @@
     <div class="post-view">
       <div>
         <h1>{{ post.title }}</h1>
-        <span>번호: {{ post.id }}</span>
-        <strong>{{ post.user.name }} · {{ post.createdAt }}</strong>
+        <strong>ID: {{ post.id }} · {{ post.user.name }} · {{ post.createdAt }}</strong>
       </div>
       <p>{{ post.contents }}</p>
 
@@ -13,6 +12,23 @@
         <button @onclick="onDelete">삭제</button>
         <router-link :to="{ name: 'Index' }">목록</router-link>
       </div>
+    </div>
+
+    <ul class="comments">
+      <li v-for="comment in post.comments" :key="comment.id">
+        <div class="comment-item">
+          <strong>{{ comment.user.name }}</strong>
+          <span>{{ comment.createdAt }}</span>
+          <p>{{ comment.contents }}</p>
+        </div>
+      </li>
+    </ul>
+
+    <div class="comment-form">
+      <label for="comment">
+        <textarea name="comment" id="comment" cols="30" row="5" placeholder="댓글을 입력해주세요"></textarea>
+        <button type="button">등록</button>
+      </label>
     </div>
   </div>
 </template>
@@ -99,6 +115,7 @@ button {
 }
 .post-view-page > ul {
   text-align: left;
+  padding: 0;
   margin-top: 20px;
   border-top: 1px solid #ced4da;
 }
@@ -180,26 +197,24 @@ button {
 }
 .comment-form {
   position: relative;
-  margin-top: 20px;
-  padding-right: 100px;
+  text-align: center;
   overflow: hidden;
 }
 .comment-form textarea {
-  width: 100%;
+  width: 86%;
   height: 60px;
   border: 1px solid #868e96;
   padding: 10px;
   font-size: 14px;
+  box-sizing: border-box;
 }
 .comment-form button {
-  position: absolute;
-  right: 0;
-  top: 0;
   height: 60px;
   width: 96px;
   background-color: #414141;
   color: #fff;
   font-size: 16px;
+  vertical-align: text-bottom;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 .comment-form button:hover {

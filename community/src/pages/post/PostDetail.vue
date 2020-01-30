@@ -26,7 +26,7 @@
 
     <div class="comment-form">
       <label for="comment">
-        <textarea name="comment" id="comment" cols="30" row="5" placeholder="댓글을 입력해주세요"></textarea>
+        <textarea name="comment" id="comment" cols="30" rows="5" placeholder="댓글을 입력해주세요"></textarea>
         <button type="button">등록</button>
       </label>
     </div>

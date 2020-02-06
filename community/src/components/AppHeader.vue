@@ -5,7 +5,13 @@
     <div class="nav">
       <router-link to="/auth/login" v-if="isNotLogin">로그인</router-link>
       <div v-else>
-        <button type="button" @click="onLogout" class="logout">로그아웃</button>
+        <button type="button" @click="toggleLogout" class="toggle">
+          {{ info.name }}님 환영합니다!
+        </button>
+        <button @click="onLogout"
+                :class="{ view: isToggleLogout }"
+                type="button"
+                class="logout">로그아웃</button>
       </div>
     </div>
   </header>
@@ -15,6 +21,11 @@
 import { mapState, mapGetters, mapActions } from 'vuex'
 export default {
   name: 'AppHeader',
+  data () {
+    return {
+      isToggleLogout: false
+    }
+  },
   computed: {
     ...mapState(['info']),
     ...mapGetters(['isNotLogin'])
@@ -22,8 +33,12 @@ export default {
   methods: {
     ...mapActions(['logout']),
     onLogout () {
+      this.isToggleLogout = false
       this.logout()
       this.$router.push({ name: 'Index' })
+    },
+    toggleLogout () {
+      this.isToggleLogout = !this.isToggleLogout
     }
   }
 }
@@ -54,7 +69,31 @@ export default {
   right: 20px;
 }
 
+.toggle {
+  all: initial;
+}
+
+.toggle::after {
+  display: inline-block;
+  content: "▼";
+  margin-left: 3px;
+  font-size: .5em;
+  vertical-align: middle;
+
+  cursor: pointer;
+}
+
 .logout {
   all: initial;
+  display: none;
+}
+
+.logout.view {
+  display: block;
+  width: 100%;
+  background-color: lightgrey;
+  text-align: center;
+
+  cursor: pointer;
 }
 </style>

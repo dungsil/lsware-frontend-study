@@ -28,9 +28,14 @@ export default {
   },
 
   // 게시글
-
   fetchPost ({ commit }, postId) {
     return http.get(`/posts/${postId}`)
       .then((res) => commit('fetchPost', res.data))
+  },
+
+  // 덧글
+  addComment ({ state, commit }, comment) {
+    return http.post(`/posts/${state.post.id}/comments`, { contents: comment })
+      .then(res => commit('syncComment', res.data))
   }
 }

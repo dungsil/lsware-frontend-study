@@ -35,9 +35,10 @@ body {
 
 .card {
   width: 50%;
-  margin: 0 auto;
   padding: 1rem;
   background-color: #fff;
   box-shadow: 0 4px 10px -4px rgba(0, 0, 0, 0.2);
+
+  margin: 100px auto 0;
 }
 </style>

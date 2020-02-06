@@ -32,5 +32,10 @@ export default {
   // 게시글
   fetchPost (state, post) {
     state.post = post
+  },
+
+  // 덧글
+  syncComment (state, comment) {
+    state.post.comments.push(comment)
   }
 }

@@ -53,6 +53,7 @@ export default {
   height: 60px;
   border-bottom: 1px solid #ededed;
   background-color: #fff;
+  z-index: 9999;
 }
 
 .logo {

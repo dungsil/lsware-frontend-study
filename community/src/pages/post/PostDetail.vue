@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <Comments :comments="post.comments" />
+    <Comments :comments="post.comments" @changeComment="onChangeComment" />
     <CommentForm @submit="onCommentSubmit" />
   </div>
 </template>
@@ -72,6 +72,9 @@ export default {
             this.$router.push({ name: 'Login' })
           }
         })
+    },
+    onChangeComment (payload) {
+      console.log(payload)
     }
   }
 }

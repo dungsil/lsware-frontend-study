@@ -37,5 +37,11 @@ export default {
   addComment ({ state, commit }, comment) {
     return http.post(`/posts/${state.post.id}/comments`, { contents: comment })
       .then(res => commit('syncComment', res.data))
+  },
+  editComment ({ state, commit }, comment) {
+
+  },
+  deleteComment ({ state, commit }, comment) {
+
   }
 }

@@ -1,6 +1,15 @@
 export default {
-  accessToken: null,
-  info: null,
+  accessToken: '',
+  info: {},
   posts: [],
-  post: null
+  post: {
+    id: 0,
+    title: '',
+    createdAt: '',
+    contents: '',
+    comments: [],
+    user: {
+      name: ''
+    }
+  }
 }

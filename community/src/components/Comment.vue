@@ -40,7 +40,7 @@ export default {
       this.isModify = !this.isModify
     },
     onSubmit () {
-      this.$emit('changeComment', this.comments)
+      this.$emit('changeComment', this.comment)
     }
   }
 }

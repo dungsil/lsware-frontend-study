@@ -8,6 +8,8 @@
 
 <script>
 import Comment from './Comment'
+import { mapActions } from 'vuex'
+
 export default {
   name: 'Comments',
   components: { Comment },
@@ -18,8 +20,16 @@ export default {
     }
   },
   methods: {
-    onChangeComment (data) {
-      this.$emit('changeComment', data)
+    ...mapActions(['editComment', 'deleteComment']),
+    onChangeComment ({ id, comment }) {
+      this.editComment({ commentId: id, comment })
+        .catch((e) => {
+          if (e.response.status === 401) {
+            this.$router.push({ name: 'Login' })
+          } else {
+            alert(e.response.data.msg)
+          }
+        })
     }
   }
 }

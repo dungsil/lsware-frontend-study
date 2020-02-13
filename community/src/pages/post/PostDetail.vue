@@ -8,13 +8,13 @@
 
     <div class="post-view">
       <div style="text-align: right; border: none;">
-        <router-link :to="{ name: 'PostEdit', params: { postId: post.id }}">수정</router-link>
+<!--        <router-link :to="{ name: 'PostEdit', params: { postId: post.id }}">수정</router-link>-->
         <button type="button" @onclick="onDelete">삭제</button>
         <router-link :to="{ name: 'Index' }">목록</router-link>
       </div>
     </div>
 
-    <Comments :comments="post.comments" @changeComment="onChangeComment" />
+    <Comments :comments="post.comments" />
     <CommentForm @submit="onCommentSubmit" />
   </div>
 </template>
@@ -59,7 +59,6 @@ export default {
       }
     },
     onDelete () {
-      console.log('k ha')
       http.delete(`/posts/${this.post.id}`)
         .then(() => {
           alert('게시글이 삭제되었습니다.')
@@ -72,9 +71,6 @@ export default {
             this.$router.push({ name: 'Login' })
           }
         })
-    },
-    onChangeComment (payload) {
-      console.log(payload)
     }
   }
 }

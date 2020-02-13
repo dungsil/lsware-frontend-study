@@ -1,5 +1,5 @@
 export default {
-  isNotLogin (state) {
-    return state.info === null
+  isNotLogin ({ accessToken }) {
+    return accessToken.length <= 0
   }
 }
